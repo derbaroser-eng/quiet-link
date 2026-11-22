@@ -1,0 +1,10 @@
+{
+  "name": "quiet-link-extension",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Stash — close any tab without losing it. Client-side Manifest V3 extension.",
+  "scripts": {
+    "test": "node --test test/*.test.mjs"
+  }
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Quiet Link — Strip the trackers. See what was watching.</title>
+<meta name="description" content="A tiny browser extension that removes tracking junk from links and shows you exactly what it removed. Nothing leaves your browser.">
+<style>
+  :root { --bg:#0d0d14; --card:#171724; --ink:#f5f5fb; --mut:#a6a6bd; --accent:#6C5CE7; --ok:#00d2a3; --line:#2a2a3d; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.6 system-ui,-apple-system,Segoe UI,sans-serif; }
+  .wrap { max-width:920px; margin:0 auto; padding:0 22px; }
+  header { padding:26px 0; border-bottom:1px solid var(--line); }
+  .logo { font-weight:800; font-size:20px; letter-spacing:-.4px; }
+  .logo span { color:var(--accent); }
+  header .sub { color:var(--mut); font-size:13px; }
+  .hero { padding:64px 0 40px; }
+  h1 { font-size:clamp(34px,6vw,58px); line-height:1.08; letter-spacing:-1.6px; margin:0 0 18px; }
+  h1 em { color:var(--accent); font-style:normal; }
+  .lede { font-size:19px; color:var(--mut); max-width:620px; }
+  .btn { display:inline-block; margin-top:26px; background:var(--accent); color:#fff; padding:14px 24px; border-radius:12px; font-weight:700; text-decoration:none; }
+  .btn.ghost { background:transparent; border:1px solid var(--line); color:var(--ink); margin-left:10px; }
+  .demo { background:var(--card); border:1px solid var(--line); border-radius:18px; padding:24px; margin:34px 0 60px; }
+  .demo h2 { margin:0 0 6px; font-size:18px; }
+  .demo p { color:var(--mut); font-size:14px; margin:0 0 16px; }
+  textarea { width:100%; min-height:74px; background:#101019; color:var(--ink); border:1px solid var(--line); border-radius:10px; padding:12px; font:13px/1.4 ui-monospace,Consolas,monospace; }
+  .run { background:var(--accent); color:#fff; border:0; border-radius:10px; padding:11px 20px; font-weight:700; cursor:pointer; margin-top:10px; }
+  .out { margin-top:16px; display:none; }
+  .clean { background:#101019; border:1px solid var(--line); border-radius:10px; padding:12px; color:var(--ok); word-break:break-all; font:13px/1.5 ui-monospace,Consolas,monospace; }
+  .receipt { white-space:pre-wrap; color:var(--mut); background:#0b0b12; border-left:3px solid var(--accent); border-radius:8px; padding:12px; margin-top:10px; font:12px/1.6 ui-monospace,Consolas,monospace; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; padding:0 0 60px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:22px; }
+  .card h3 { margin:0 0 8px; font-size:16px; }
+  .card p { color:var(--mut); font-size:14px; margin:0; }
+  footer { border-top:1px solid var(--line); padding:24px 0 40px; color:var(--mut); font-size:13px; }
+  footer a { color:var(--accent); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="logo"><span>◈</span> Quiet Link</div>
+    <div class="sub">A small tool for people who notice what rides along with a link.</div>
+  </header>
+
+  <section class="hero">
+    <h1>Strip the trackers.<br><em>See who was watching.</em></h1>
+    <p class="lede">Every link you copy is quietly carrying labels about you. Quiet Link removes them in one click — then shows you a plain-language receipt of exactly what was there.</p>
+    <a class="btn" href="https://github.com/derbaroser-eng/quiet-link">Get the extension</a>
+    <a class="btn ghost" href="#try">Try it here ↓</a>
+  </section>
+
+  <section class="demo" id="try">
+    <h2>Try the real thing</h2>
+    <p>Paste a link below. This runs the exact same code as the extension, in your browser. Nothing is uploaded.</p>
+    <textarea id="url" placeholder="https://shop.example.com/item?utm_source=news&fbclid=ABC123&id=42">https://shop.example.com/item?utm_source=newsletter&fbclid=ABC123xyz&mc_eid=9f2&id=42</textarea>
+    <button class="run" id="run">Clean this link</button>
+    <div class="out" id="out">
+      <div class="clean" id="clean"></div>
+      <div class="receipt" id="receipt"></div>
+    </div>
+  </section>
+
+  <section class="grid">
+    <div class="card"><h3>Nothing leaves your browser</h3><p>No account, no analytics, no network calls. The whole thing is a few kilobytes of plain JavaScript you can read.</p></div>
+    <div class="card"><h3>A receipt, not a black box</h3><p>Most cleaners just hand back a shorter URL. Quiet Link tells you which company's tag it removed and why it was there.</p></div>
+    <div class="card"><h3>One click, anywhere</h3><p>Right-click a link to copy it clean, or paste into the little popup. Your rules for specific sites are remembered locally.</p></div>
+  </section>
+
+  <footer>
+    Built by one person who got tired of 400-character links.
+    <a href="https://github.com/derbaroser-eng/quiet-link">Source</a> ·
+    <a href="mailto:hello@quietlink.example">Contact</a>
+  </footer>
+</div>
+
+<script type="module">
+import { stripTrackers, buildReceipt } from "./core/link.js";
+document.getElementById("run").addEventListener("click", () => {
+  const r = stripTrackers(document.getElementById("url").value);
+  document.getElementById("out").style.display = "block";
+  document.getElementById("clean").textContent = r.ok ? r.clean : "That doesn't look like a valid link.";
+  document.getElementById("receipt").textContent = buildReceipt(r);
+});
+</script>
+</body>
+</html>

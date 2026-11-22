@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Quiet Link</title>
+<style>
+  :root { --bg:#12121a; --card:#1d1d2b; --ink:#f5f5fb; --mut:#a6a6bd; --accent:#6C5CE7; --ok:#00d2a3; }
+  * { box-sizing:border-box; }
+  body { margin:0; width:380px; padding:18px; background:var(--bg); color:var(--ink); font:13px/1.5 system-ui,-apple-system,Segoe UI,sans-serif; }
+  h1 { margin:0 0 2px; font-size:17px; letter-spacing:-.3px; }
+  h1 span { color:var(--accent); }
+  .tag { color:var(--mut); font-size:11px; margin-bottom:14px; }
+  textarea { width:100%; height:64px; resize:vertical; background:var(--card); color:var(--ink); border:1px solid #34344c; border-radius:10px; padding:10px; font:12px/1.4 ui-monospace,Consolas,monospace; }
+  .row { display:flex; gap:8px; margin-top:10px; }
+  button { flex:1; border:0; border-radius:10px; padding:10px; font-weight:600; font-size:12px; cursor:pointer; background:var(--accent); color:#fff; }
+  button.ghost { background:#2a2a3d; color:var(--ink); }
+  button:disabled { opacity:.5; cursor:not-allowed; }
+  #out { margin-top:14px; display:none; }
+  .label { font-size:10px; text-transform:uppercase; letter-spacing:.8px; color:var(--mut); margin-bottom:4px; }
+  .clean { background:var(--card); border:1px solid #34344c; border-radius:10px; padding:10px; word-break:break-all; font:12px/1.4 ui-monospace,Consolas,monospace; color:var(--ok); }
+  .receipt { margin-top:8px; background:#171725; border-left:3px solid var(--accent); border-radius:6px; padding:10px; white-space:pre-wrap; font:11px/1.5 ui-monospace,Consolas,monospace; color:var(--mut); }
+  .stat { margin-top:14px; padding-top:12px; border-top:1px solid #2a2a3d; font-size:11px; color:var(--mut); display:flex; justify-content:space-between; }
+  .stat b { color:var(--ink); }
+  .tabs { display:flex; gap:6px; margin-bottom:12px; }
+  .tabs button { padding:6px; font-size:11px; flex:none; }
+  .tabs button.active { background:var(--accent); }
+  .view { display:none; } .view.active { display:block; }
+</style>
+</head>
+<body>
+  <h1><span>◈</span> Quiet Link</h1>
+  <div class="tag">Clean links. See what was watching.</div>
+
+  <div class="tabs">
+    <button id="tab-clean" class="active">Clean</button>
+    <button id="tab-rules">Rules</button>
+  </div>
+
+  <div id="view-clean" class="view active">
+    <textarea id="url" placeholder="Paste any link here…"></textarea>
+    <div class="row">
+      <button id="clean">Clean link</button>
+      <button id="clearpage" class="ghost">Use current tab</button>
+    </div>
+    <div id="out">
+      <div class="label">Clean URL — copied to clipboard</div>
+      <div class="clean" id="cleanurl"></div>
+      <div class="receipt" id="receipt"></div>
+      <div class="row"><button id="copy" class="ghost">Copy again</button></div>
+    </div>
+    <div class="stat"><span>Trackers removed so far</span><b id="total">0</b></div>
+  </div>
+
+  <div id="view-rules" class="view">
+    <div class="tag">Host-specific rules, one per line. Format: <b>host param</b> (mode strip). Use <b>*.example.com</b> for subdomains.</div>
+    <textarea id="rules" style="height:120px" placeholder="shop.example.com promo_code&#10;*.news.com ref"></textarea>
+    <div class="row"><button id="saverules">Save rules</button></div>
+    <div class="row"><button id="reset" class="ghost">Reset stats</button></div>
+  </div>
+
+<script type="module" src="popup.js"></script>
+</body>
+</html>

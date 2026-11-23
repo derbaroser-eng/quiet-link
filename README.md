@@ -22,7 +22,7 @@ of what it found. No account, no analytics, no network calls.
 
 ## Sell / rebrand
 - `DESIGN.md` — product design, hook, monetization surface.
-- `site/index.html` — public landing page with a live, in-browser demo of the same core.
+- `docs/index.html` — public landing page with a live, in-browser demo of the same core.
 - Rebrand by editing `manifest.json` (name/description) and the `ACCENT` colour in
   `popup.html` CSS.
 

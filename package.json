@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Stash — close any tab without losing it. Client-side Manifest V3 extension.",
+  "description": "Quiet Link - strip tracking parameters from any link and see exactly what was removed. Fully client-side, nothing leaves your browser.",
   "scripts": {
     "test": "node --test test/*.test.mjs"
   }

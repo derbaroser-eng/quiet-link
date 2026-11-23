@@ -64,7 +64,7 @@ ok("core applies host rule", !cleaned.clean.includes("promo="));
 ok("receipt names categories", /Ad campaign/.test(buildReceipt(cleaned)) && /Social \/ Meta/.test(buildReceipt(cleaned)));
 
 // 5. HTML bundles reference the core module that exists
-for (const html of ["popup.html", "site/index.html"]) {
+for (const html of ["popup.html", "docs/index.html"]) {
   const p = join(ROOT, html);
   if (!existsSync(p)) { ok(`html exists: ${html}`, false); continue; }
   const txt = readFileSync(p, "utf8");

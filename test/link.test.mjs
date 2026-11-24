@@ -147,3 +147,16 @@ test("applyHostRules ignores rules for other hosts", () => {
   assert.equal(out.removedCount, 0);
   assert.equal(out.clean, "https://other.com/?promo=X");
 });
+
+// Regression: registry keys are stored mixed-case but lookups are lowercased.
+test("camelCase tracker registry entries strip case-insensitively", () => {
+  const r = stripTrackers("https://mail.example.com/open?hsCtaTracking=abc&elqTrackId=42&elqCampaignId=7&keepme=1");
+  assert.equal(r.ok, true);
+  assert.deepEqual(r.removed.map((x) => x.key).sort(), ["elqCampaignId", "elqTrackId", "hsCtaTracking"]);
+  assert.equal(r.clean, "https://mail.example.com/open?keepme=1");
+});
+
+test("classifyParam labels camelCase CRM trackers", () => {
+  assert.equal(classifyParam("hsCtaTracking"), "Email / CRM");
+  assert.equal(classifyParam("ELQTRACKID"), "Email / CRM");
+});

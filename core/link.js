@@ -6,7 +6,7 @@
  * for tracker detection, URL cleaning and receipt rendering.
  */
 
-/** Exact-match tracking parameter names (lower-cased). */
+/** Exact-match tracking parameter names (lower-cased on construction so mixed-case registry entries stay matchable). */
 export const KNOWN_TRACKERS = Object.freeze(
   new Set([
     // Google / analytics
@@ -33,7 +33,7 @@ export const KNOWN_TRACKERS = Object.freeze(
     // Session / debug leakage
     "_ga", "_gl", "_gid", "sid", "sessionid", "phpsessid", "jsessionid",
     "doing_wp_cron", "ver", "timestamp", "_t",
-  ])
+    ].map((k) => k.toLowerCase()))
 );
 
 /** Prefix matching for whole families of tracking params. */

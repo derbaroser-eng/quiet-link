@@ -1,0 +1,116 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Quiet Link store shots</title>
+<style>
+:root{--bg:#0d0d14;--card:#1d1d2b;--ink:#f5f5fb;--mut:#a6a6bd;--accent:#6C5CE7;--ok:#00d2a3}
+*{box-sizing:border-box}html,body{margin:0;padding:0;width:1280px;background:#08080e}
+.shot{width:1280px;height:800px;position:relative;overflow:hidden;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif;background-image:radial-gradient(circle at 15% 0%,#1b1633,transparent 55%),radial-gradient(circle at 100% 100%,#0e2b26,transparent 45%)}
+.kick{position:absolute;left:72px;top:52px;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--mut)}
+h2.h{position:absolute;left:72px;top:84px;font-size:50px;line-height:1.08;font-weight:800;letter-spacing:-1.8px;margin:0;max-width:1130px}
+h2.h em{color:var(--accent);font-style:normal}
+.sub{position:absolute;left:72px;top:206px;font-size:19px;color:var(--mut);max-width:950px;margin:0}
+.foot{position:absolute;left:72px;bottom:44px;font-size:14px;color:#6f6f86}
+.pop{position:absolute;background:var(--card);border:1px solid #34344c;border-radius:18px;padding:22px;box-shadow:0 30px 90px rgba(0,0,0,.55)}
+.pop h1{margin:0 0 2px;font-size:22px;letter-spacing:-.4px}.pop h1 span{color:var(--accent)}
+.tag{color:var(--mut);font-size:13px;margin-bottom:14px}
+ta{width:100%;background:#12121a;color:var(--ink);border:1px solid #34344c;border-radius:10px;padding:12px;font:13px/1.5 ui-monospace,Consolas,monospace}
+.btn{border:0;border-radius:10px;padding:12px;font-weight:700;font-size:13px;background:var(--accent);color:#fff;text-align:center}
+.btn.gh{background:#2a2a3d;color:var(--ink)}
+.lab{font-size:11px;text-transform:uppercase;letter-spacing:.9px;color:var(--mut);margin:12px 0 5px}
+.cln{background:#12121a;border:1px solid #34344c;border-radius:10px;padding:12px;font:13px/1.5 ui-monospace,Consolas,monospace;color:var(--ok);word-break:break-all}
+.rcp{margin-top:10px;background:#14141f;border-left:3px solid var(--accent);border-radius:8px;padding:12px;white-space:pre-wrap;font:12.5px/1.6 ui-monospace,Consolas,monospace;color:#c7c7d8}
+</style></head><body>
+<!-- S1 -->
+<section class="shot" id="s1">
+<div class="kick">Quiet Link · the popup</div>
+<h2 class="h">One click. <em>Nothing leaves your browser.</em></h2>
+<p class="sub">Paste a link, hit Clean link, and get the tidy URL plus an honest receipt of what was tracking you.</p>
+<div class="pop" style="left:72px;top:290px;width:520px">
+<h1><span>&#9670;</span> Quiet Link</h1><div class="tag">Clean links. See what was watching.</div>
+<textarea class="ta" readonly>https://shop.example.com/item?utm_source=news&amp;utm_campaign=spring&amp;fbclid=ABC123&amp;gclid=G123&amp;mc_cid=ZZ9&amp;id=42</textarea>
+<div style="display:flex;gap:8px;margin-top:12px"><span class="btn" style="flex:1">Clean link</span><span class="btn gh" style="flex:1">Use current tab</span></div>
+</div>
+<div class="pop" style="left:632px;top:290px;width:576px">
+<div class="lab">Clean URL — copied to clipboard</div>
+<div class="cln">https://shop.example.com/item?id=42</div>
+<div class="rcp">Quiet Link removed 5 trackers from one link:
+  Ad campaign: utm_source, utm_campaign, gclid
+  Social / Meta: fbclid
+  Email / CRM: mc_cid
+Clean link: https://shop.example.com/item?id=42
+— Quiet Link: the internet remembers less when you share this.</div>
+</div>
+<div class="foot">60+ trackers · 7 prefix families · zero network requests</div>
+</section>
+<!-- S2 -->
+<section class="shot" id="s2">
+<div class="kick">Quiet Link · the surveillance receipt</div>
+<h2 class="h">See the <em>passenger list</em> hiding in a link.</h2>
+<p class="sub">Not a silent rewrite — a readable card, by category, you can paste straight into a chat.</p>
+<style>
+.bc{position:absolute;left:200px;top:214px;width:880px;background:var(--card);border:1px solid #34344c;border-radius:20px;padding:34px 40px;box-shadow:0 30px 90px rgba(0,0,0,.55)}
+.bc .t{font-size:13px;text-transform:uppercase;letter-spacing:.14em;color:var(--mut);margin-bottom:16px}
+.bn{font-size:62px;font-weight:800;color:var(--ok);line-height:1}.bn small{font-size:19px;color:var(--mut);font-weight:500}
+.cat{display:flex;align-items:center;gap:14px;margin-top:24px;font:14px ui-monospace,Consolas,monospace}
+.chip{padding:5px 12px;border-radius:999px;font:600 13px system-ui,sans-serif;min-width:150px;text-align:center}
+.c1{background:#3a2d12;color:#fbbf24;border:1px solid #6b4f14}.c2{background:#122a3a;color:#60a5fa;border:1px solid #1d4a68}.c3{background:#10332a;color:#34d399;border:1px solid #175543}
+.cat b{color:var(--ink);font-weight:500}
+.cl{margin-top:28px;padding-top:20px;border-top:1px solid #34344c;font:14px ui-monospace,Consolas,monospace;color:var(--mut)}
+.cl span{color:var(--ok)}
+</style>
+<div class="bc">
+<div class="t">Quiet Link · receipt</div>
+<div><span class="bn">5</span> <small>trackers removed from one link</small></div>
+<div class="cat"><span class="chip c1">Ad campaign</span><b>utm_source · utm_campaign · gclid</b></div>
+<div class="cat"><span class="chip c2">Social / Meta</span><b>fbclid</b></div>
+<div class="cat"><span class="chip c3">Email / CRM</span><b>mc_cid</b></div>
+<div class="cl">Clean link → <span>https://shop.example.com/item?id=42</span></div>
+</div>
+<div class="foot">Copy the receipt. Show someone what they were about to click.</div>
+</section>
+<!-- S3 -->
+<section class="shot" id="s3">
+<div class="kick">Quiet Link · your rules</div>
+<h2 class="h">Shop-specific junk? <em>Teach it once.</em></h2>
+<p class="sub">One rule per line. Wildcards and prefix families work. Only the hosts you name are touched.</p>
+<style>.tabs{display:flex;gap:8px;margin-bottom:16px}.tabs span{padding:8px 16px;border-radius:8px;font-size:13px;font-weight:600;background:#2a2a3d;color:var(--mut)}.tabs span.on{background:var(--accent);color:#fff}</style>
+<div class="pop" style="left:230px;top:300px;width:820px">
+<div class="tabs"><span>Clean</span><span class="on">Rules</span></div>
+<div class="tag">Host-specific rules, one per line. Format: <b style="color:#d7d7e6">host param</b>. Use <b style="color:#d7d7e6">*.example.com</b> for subdomains.</div>
+<textarea class="ta" style="height:150px">shop.example.com promo_code
+*.news.com ref
+*.mail.com promo_*</textarea>
+<div style="display:flex;gap:8px;margin-top:14px"><span class="btn" style="flex:1">Save rules</span><span class="btn gh" style="flex:1">Reset stats</span></div>
+<div class="lab">Saved</div>
+<div class="cln">3 rules active · stored locally in chrome.storage</div>
+</div>
+<div class="foot">No host permissions · no sync · no account</div>
+</section>
+<!-- S4 -->
+<section class="shot" id="s4">
+<div class="kick">Quiet Link · the tally</div>
+<h2 class="h">A quiet count of <em>every tracker you stopped.</em></h2>
+<p class="sub">The badge adds up as you clean. Tap the icon to see the running total — it lives only on your machine.</p>
+<style>
+.br{position:absolute;left:140px;top:206px;width:1000px;background:#16161f;border:1px solid #34344c;border-radius:16px 16px 0 0;box-shadow:0 30px 90px rgba(0,0,0,.5)}
+.bar{height:70px;display:flex;align-items:center;gap:14px;padding:0 22px;border-bottom:1px solid #2a2a3d}
+.dots{display:flex;gap:8px}.dots i{width:12px;height:12px;border-radius:50%;display:block}
+.addr{flex:1;background:#0f0f17;border-radius:999px;padding:10px 18px;font:13px ui-monospace,Consolas,monospace;color:#8b8ba3}
+.ei{position:relative;width:38px;height:38px;border-radius:10px;background:var(--accent);display:grid;place-items:center;font-size:21px;font-weight:800;color:#fff}
+.bdg{position:absolute;right:-12px;top:-12px;min-width:38px;height:38px;padding:0 8px;border-radius:19px;background:#e5484d;color:#fff;font:800 16px/38px system-ui,sans-serif;text-align:center;border:3px solid #16161f}
+.pb{padding:56px 60px 0;color:var(--mut);font-size:15px}.pb h2{color:var(--ink);font-size:34px;margin:0 0 16px}
+.sr{display:flex;gap:18px;margin-top:32px}.sc{flex:1;background:#1d1d2b;border:1px solid #34344c;border-radius:14px;padding:24px}
+.sc b{display:block;font-size:40px;color:var(--ok);line-height:1.1}.sc span{font-size:13px;color:var(--mut)}
+</style>
+<div class="br">
+<div class="bar"><div class="dots"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></div>
+<div class="addr">https://shop.example.com/item?id=42</div>
+<div class="ei">&#9670;<span class="bdg">37</span></div></div>
+<div class="pb"><h2>Trackers removed so far</h2>
+<p>Nothing is uploaded. The tally is a number in local storage that only you can see.</p>
+<div class="sr">
+<div class="sc"><b>37</b><span>total trackers stopped</span></div>
+<div class="sc"><b>12</b><span>links cleaned this month</span></div>
+<div class="sc"><b>0</b><span>network requests made</span></div>
+</div></div></div>
+<div class="foot">The badge is the whole growth loop: people ask what the number means.</div>
+</section>
+</body></html>

@@ -40,7 +40,7 @@ tracker remover, clean URL, utm stripper, fbclid removal, privacy, link cleaner,
 ## Data practices (store form)
 - Single-purpose: remove tracking parameters from links.
 - No data collected, transmitted or stored off-device.
-- Permissions: `storage`, `contextMenus`, `clipboardWrite`. Zero host permissions.
+- Permissions: `activeTab`, `storage`, `contextMenus`, `notifications`, `clipboardWrite`. Zero host permissions.
 - Privacy policy: on the landing page, plain language, no tracking of its own.
 
 ## What's new — 1.0.0

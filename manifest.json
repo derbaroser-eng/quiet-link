@@ -5,7 +5,7 @@
   "version": "1.0.0",
   "description": "Strip tracking parameters from any link and see exactly what was removed. Fully client-side — nothing leaves your browser.",
   "minimum_chrome_version": "114",
-  "permissions": ["activeTab", "storage", "contextMenus", "scripting", "notifications", "clipboardWrite"],
+  "permissions": ["activeTab", "storage", "contextMenus", "notifications", "clipboardWrite"],
   "background": { "service_worker": "background.js", "type": "module" },
   "action": {
     "default_popup": "popup.html",

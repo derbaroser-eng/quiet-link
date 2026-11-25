@@ -19,3 +19,12 @@ test("README landing-page path matches the shipped docs/index.html", () => {
   assert.match(readme, /docs\/index\.html/);
   assert.doesNotMatch(readme, /site\/index\.html/);
 });
+
+test("manifest declares exactly the reviewed permissions (least privilege)", () => {
+  const m = JSON.parse(read("manifest.json"));
+  const reviewed = ["activeTab", "storage", "contextMenus", "notifications", "clipboardWrite"];
+  const declared = [...(m.permissions || [])].sort();
+  assert.deepEqual(declared, [...reviewed].sort());
+  assert.ok(!declared.includes("scripting"), "chrome.scripting is unused and must stay undeclared");
+  assert.ok(!m.host_permissions || m.host_permissions.length === 0, "no host permissions");
+});
